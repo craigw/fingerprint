@@ -38,12 +38,6 @@
       window.fingerprint = md5(fetch_client_whorls());
       createCookie('_browser_fingerprint', window.fingerprint, 30);
     }
-
-    var loginForm = $("form#new-session-form, form#new_user");
-    loginForm.each(function(form) {
-      var fingerprintField = '<input type="hidden" name="fingerprint" value="' + window.fingerprint + '" />';
-      loginForm.append(fingerprintField);
-    });
   });
 
   function getCookie(name) {

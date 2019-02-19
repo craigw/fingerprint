@@ -1075,4 +1075,4 @@
 
       return utftext;
   }
-})(jQuery);
+});

@@ -1,4 +1,4 @@
-(function($) {
+(function() {
   // From https://github.com/groovyruby/session_protector
   //
   // It's distributed under the following MIT licence, although I assume
@@ -7,8 +7,6 @@
   //
   // The code is largely the same as originally retrieved, although I have
   // patched it a little.
-  //
-  // Requires jQuery.
   //
   //  Copyright (c) 2010 [name of plugin creator]
   //
@@ -31,8 +29,11 @@
   //  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
   //  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   //
-  $(document).ready(function() {
-    $('body').append('<div id="oPersistDiv" style="display: none;"></div>');
+  document.addEventListener('DOMContentLoaded', function () {
+    var elem = document.createElement('div');
+    elem.id = 'oPersistDiv';
+    elem.style.cssText = 'display:none';
+    document.body.appendChild(elem);
     window.fingerprint = getCookie('_browser_fingerprint');
     if(window.fingerprint == null || window.fingerprint == '5e543256c480ac577d30f76f9120eb74') {
       window.fingerprint = md5(fetch_client_whorls());
